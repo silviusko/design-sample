@@ -55,7 +55,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.fab:
-                Snackbar.make(getView(), "FloatingActionButton onClick", Snackbar.LENGTH_SHORT).setAction("Click", this).show();
+                Snackbar.make(mRecyclerView, "FloatingActionButton onClick", Snackbar.LENGTH_SHORT).setAction("Click", this).show();
                 break;
 
             case R.id.snackbar_action:
