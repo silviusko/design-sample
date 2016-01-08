@@ -15,5 +15,6 @@ branches:
     - master
 
 script:
+    - echo y | android update sdk --no-ui --all --filter "android-23,build-tools-23.0.2"
     - ./gradlew clean assemble
 
