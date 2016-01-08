@@ -1,13 +1,21 @@
+#
+# Build configuration for Circle CI
+#
+
+general:
+    artifacts:
+        - /home/ubuntu/your-app-name/app/build/outputs/apk/
+
 machine:
-  environment:
-    ANDROID_HOME: /usr/local/android-sdk-linux
+    environment:
+        ANDROID_HOME: /usr/local/android-sdk-linux
 
 dependencies:
-  pre:
-    - echo y | android update sdk --no-ui --all --filter "android-23,build-tools-23.0.1"
+    pre:
+        - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.1,android-23"
 
-  override:
-    - ./gradlew dependencies
+    override:
+        - ./gradlew dependencies
 
 test:
   override:
