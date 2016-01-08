@@ -12,9 +12,7 @@ dependencies:
 
 test:
   override:
-    - ./gradlew clean assemble
-    # run lint checker
-    - lint app --html app/build/outputs/result.html
+    - ./gradlew clean assemble lint
 
     # copy results
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
