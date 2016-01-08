@@ -5,8 +5,6 @@ build/
 
 #local settings
 local.properties
-*.prefs
-*.properties
 
 # built application files
 *.apk
