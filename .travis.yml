@@ -1,0 +1,17 @@
+language: android
+
+android:
+  components:
+    - build-tools-23.0.2
+    - android-23
+
+  licenses:
+    - '.+'
+
+  script:
+    - ./gradlew clean assemble
+
+branches:
+  only:
+    - master
+
