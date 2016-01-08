@@ -12,9 +12,6 @@ android:
   script:
     - ./gradlew clean assemble
 
-before_install:
- - chmod +x gradlew
-
 branches:
   only:
     - master
