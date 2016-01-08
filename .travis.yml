@@ -1,13 +1,11 @@
+sudo: false
 language: android
+jdk: oraclejdk7
+
 android:
   components:
     - build-tools-23.0.2
     - android-23
-
-  licenses:
-    - '.+'
-
-script: ./gradlew clean assemble
 
 before_install:
  - chmod +x gradlew
@@ -15,4 +13,9 @@ before_install:
 branches:
   only:
     - master
+
+script:
+    - echo "Travis branch is $TRAVIS_BRANCH"
+    - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+    - ./gradlew clean assemble
 
