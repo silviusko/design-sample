@@ -1,6 +1,4 @@
 language: android
-sudo: false
-jdk: openjdk7
 android:
   components:
     - build-tools-23.0.2
@@ -9,8 +7,10 @@ android:
   licenses:
     - '.+'
 
-  script:
-    - ./gradlew clean assemble
+script: ./gradlew clean assemble
+
+before_install:
+ - chmod +x gradlew
 
 branches:
   only:
