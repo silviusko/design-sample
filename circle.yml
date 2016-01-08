@@ -15,6 +15,10 @@ test:
     - ./gradlew clean assemble lint
 
     # copy results
-    - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+    - mkdir $CIRCLE_ARTIFACTS/lint
+    - cp -r app/build/outputs/apk $CIRCLE_ARTIFACTS
+    - cp -r app/build/outputs/lint-results_files/ $CIRCLE_ARTIFACTS/lint
+    - cp app/build/outputs/lint-results.html $CIRCLE_ARTIFACTS/lint
+    - cp app/build/outputs/lint-results.xml $CIRCLE_ARTIFACTS/lint
 #    - cp -r app/infer-out $CIRCLE_ARTIFACTS
 #    - cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
