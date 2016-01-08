@@ -4,7 +4,7 @@ jdk: oraclejdk7
 
 android:
   components:
-    - build-tools-23.0.2
+    - build-tools-23.0.1
     - android-23
 
 before_install:
@@ -15,6 +15,5 @@ branches:
     - master
 
 script:
-    - echo y | android update sdk --no-ui --all --filter "android-23,build-tools-23.0.2"
     - ./gradlew clean assemble
 
