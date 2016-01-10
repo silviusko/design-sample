@@ -25,8 +25,5 @@ android:
     # - sys-img-armeabi-v7a-android-19
     # - sys-img-x86-android-17
 
-before_install:
-  - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.2,android-23"
-
 script:
   - ./gradlew clean assemble lint
