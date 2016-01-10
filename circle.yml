@@ -17,13 +17,19 @@ dependencies:
 
 test:
   override:
-    - ./gradlew clean assemble lint
+    - ./gradlew clean build
 
+  post:
     # copy results
-    - mkdir $CIRCLE_ARTIFACTS/lint
     - cp -r app/build/outputs/apk $CIRCLE_ARTIFACTS
-    - cp -r app/build/outputs/lint-results_files/ $CIRCLE_ARTIFACTS/lint
-    - cp app/build/outputs/lint-results.html $CIRCLE_ARTIFACTS/lint
-    - cp app/build/outputs/lint-results.xml $CIRCLE_ARTIFACTS/lint
-#    - cp -r app/infer-out $CIRCLE_ARTIFACTS
-#    - cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+
+    # copy lint results
+    - mkdir $CIRCLE_ARTIFACTS/lint
+    - cp -r app/build/outputs/lint-results_files/ $CIRCLE_ARTIFACTS/lint;
+    - cp app/build/outputs/lint-results.* $CIRCLE_ARTIFACTS/lint;
+
+    # test results
+    - mkdir $CIRCLE_TEST_REPORTS/reports/
+    - cp -r app/build/reports/tests $CIRCLE_TEST_REPORTS/reports/;
+    - mkdir $CIRCLE_TEST_REPORTS/results/
+    - find . -type f -regex ".*/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/results/ \;
