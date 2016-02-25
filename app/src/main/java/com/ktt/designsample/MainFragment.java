@@ -2,6 +2,7 @@ package com.ktt.designsample;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -59,7 +60,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.snackbar_action:
-                Toast.makeText(getActivity(), "SnackBar Action", Toast.LENGTH_SHORT).show();
+                BottomSheetDialog dialog = new BottomSheetDialog(getActivity());
+                dialog.setContentView(R.layout.drawer_header);
+                dialog.show();
                 break;
         }
     }
